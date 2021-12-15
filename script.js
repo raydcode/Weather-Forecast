@@ -30,7 +30,7 @@ const displayWeather = (data) => {
         date.innerHTML = formatDate(today);
 
         const temp = document.querySelector('.temp');
-        temp.innerHTML = `Temp: ${Math.round(data.main.temp)}`;
+        temp.innerHTML = `Temp: ${Math.round(data.main.temp)} °C`;
 
         const weather = document.querySelector('.weather');
         weather.innerHTML = `Weather ${data.weather[0].main}`;
