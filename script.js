@@ -5,6 +5,7 @@ const api = {
 
 const search = document.querySelector('.search');
 const btn = document.querySelector('.btn');
+const mainContainer = document.querySelector('.main-container');
 
 search.addEventListener('input', () => {
   if (search.value.length > 0) {
@@ -34,6 +35,26 @@ const displayWeather = (data) => {
 
         const weather = document.querySelector('.weather');
         weather.innerHTML = `Weather ${data.weather[0].main}`;
+
+        if (data.weather[0].main == 'Clouds'){
+          const clouds = `url(./images/clouds.jpg) no-repeat center`;
+          mainContainer.style.background = clouds;
+          mainContainer.style.backgroundSize = 'cover';
+        }
+
+        if(data.weather[0].main == 'Clear'){
+          const clear = `url(./images/other.jpg) no-repeat center`;
+          mainContainer.style.background = clear;
+          mainContainer.style.backgroundSize = 'cover';
+        }
+
+        if(data.weather[0].main == 'Mist'){
+          const clear = `url(./images/mist.jpg) no-repeat center`;
+          mainContainer.style.background = clear;
+          mainContainer.style.backgroundSize = 'cover';
+         
+        }
+        
 
         const tempRange = document.querySelector('.temp-range');
         tempRange.innerHTML = `Temp Range : ${Math.round(data.main.feels_like)}°C / ${Math.round(data.main.temp_max)}°C`
